@@ -47,9 +47,8 @@ export function setupAPIClient(ctx = undefined) {
     
                                 failedRequestsQueue.forEach(request => request.onSuccess(token))
                                 failedRequestsQueue = []
-                            }
-                        ).catch (error => {
-                            failedRequestsQueue.forEach(request => request.onError(error))
+                            }).catch (error => {
+                            failedRequestsQueue.forEach(request => request.onFailure(error))
                             failedRequestsQueue = []
     
                             if (process.browser) {

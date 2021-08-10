@@ -8,9 +8,9 @@ import { makeServer } from "../services/mirage";
 import { queryClient } from "../services/queryClient";
 import { AuthProvider } from "../contexts/AuthContext";
 
-if (process.env.NODE_ENV !== 'development') {
-  makeServer();
-}
+// if (process.env.NODE_ENV !== 'development') {
+//   makeServer();
+// }
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -10,6 +10,7 @@ import { Sidebar } from "../../components/Sidebar";
 import { api } from "../../services/api";
 import { useUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
+import { withSSRAuth } from "../../utils/withSSRAuth";
 
 export default function UserList() {
     const [page, setPage] = useState(1)
@@ -124,3 +125,9 @@ export default function UserList() {
         </Box>
     )
 }
+
+export const getServerSideProps = withSSRAuth(async (ctx) => {
+    return {
+        props: {}
+    }
+})

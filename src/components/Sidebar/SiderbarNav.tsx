@@ -1,9 +1,11 @@
-import { Stack } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 import { RiDashboardLine, RiContactsLine, RiInputMethodLine, RiGitMergeLine } from "react-icons/ri";
+import { useAuth } from "../../contexts/AuthContext";
 import { NavLink } from "./NavLink";
 import { NavSection } from "./NavSection";
 
 export function SidebarNav() {
+    const {signOut} = useAuth()
     return (
         <Stack spacing='12' align='flex-start'>
             <NavSection title='GERAL'>
@@ -15,6 +17,13 @@ export function SidebarNav() {
                 <NavLink href='/forms' icon={RiInputMethodLine} >Formulários</NavLink>
                 <NavLink href='/automation' icon={RiGitMergeLine} >Automação</NavLink>
             </NavSection>
+
+            <Button
+                as='a'
+                size='sm'
+                fontSize='sm'
+                colorScheme='purple'
+                onClick={signOut}>Sair</Button>
         </Stack>
     )
 }
